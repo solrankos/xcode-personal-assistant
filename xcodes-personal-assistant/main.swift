@@ -3,7 +3,7 @@ import Foundation
 let assistant = Assistant()
 
 if CommandLine.argc < 2 {
-    //Handle interactive mode
+    assistant.interactiveMode()
 } else {
     assistant.staticMode()
 }
