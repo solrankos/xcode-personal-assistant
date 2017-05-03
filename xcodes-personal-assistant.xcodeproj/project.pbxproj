@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		638439E21EB9B8D900BDB638 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638439E11EB9B8D900BDB638 /* main.swift */; };
+		638439E91EB9BBBF00BDB638 /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638439E81EB9BBBF00BDB638 /* ConsoleIO.swift */; };
+		638439EB1EB9BC6100BDB638 /* Assistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638439EA1EB9BC6100BDB638 /* Assistant.swift */; };
+		638439ED1EB9CDF000BDB638 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638439EC1EB9CDF000BDB638 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		638439DE1EB9B8D900BDB638 /* xcodes-personal-assistant */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "xcodes-personal-assistant"; sourceTree = BUILT_PRODUCTS_DIR; };
 		638439E11EB9B8D900BDB638 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		638439E81EB9BBBF00BDB638 /* ConsoleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleIO.swift; sourceTree = "<group>"; };
+		638439EA1EB9BC6100BDB638 /* Assistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assistant.swift; sourceTree = "<group>"; };
+		638439EC1EB9CDF000BDB638 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				638439E11EB9B8D900BDB638 /* main.swift */,
+				638439E81EB9BBBF00BDB638 /* ConsoleIO.swift */,
+				638439EC1EB9CDF000BDB638 /* StringExtension.swift */,
+				638439EA1EB9BC6100BDB638 /* Assistant.swift */,
 			);
 			path = "xcodes-personal-assistant";
 			sourceTree = "<group>";
@@ -121,7 +130,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638439ED1EB9CDF000BDB638 /* StringExtension.swift in Sources */,
 				638439E21EB9B8D900BDB638 /* main.swift in Sources */,
+				638439EB1EB9BC6100BDB638 /* Assistant.swift in Sources */,
+				638439E91EB9BBBF00BDB638 /* ConsoleIO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
