@@ -2,7 +2,7 @@ import Foundation
 
 enum OptionType: String {
     case openXcode
-    case deleteModuleCache
+    case quitXcode
     case quit
 }
 
@@ -38,8 +38,8 @@ struct Option {
         ),
         Option(
             handle: "2",
-            type: .deleteModuleCache,
-            description: "Delete Xcodes Module Cache"
+            type: .quitXcode,
+            description: "Force quit Xcode"
         ),
         Option(
             handle: "q",

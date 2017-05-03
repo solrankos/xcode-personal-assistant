@@ -22,8 +22,8 @@ class Assistant {
                 switch option.type {
                 case .openXcode:
                     openXcode()
-                case .deleteModuleCache:
-                    consoleIO.write("Deleting module cache!")
+                case .quitXcode:
+                    quitXcode()
                 case .quit:
                     shouldQuit = true
                 }
@@ -31,11 +31,22 @@ class Assistant {
             } else {
                 consoleIO.write("Unknown option \(input)", to: .error)
             }
-            
         }
     }
     
     private func openXcode() {
-        consoleIO.write("Open xcode")
+        let task = Process()
+        task.launchPath = "/usr/bin/env"
+        task.arguments = ["open", "-a", "Xcode"]
+        task.launch()
+        task.waitUntilExit()
+    }
+    
+    private func quitXcode() {
+        let task = Process()
+        task.launchPath = "/usr/bin/env"
+        task.arguments = ["killall", "Xcode"]
+        task.launch()
+        task.waitUntilExit()
     }
 }
