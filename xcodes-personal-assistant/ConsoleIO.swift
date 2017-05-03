@@ -1,17 +1,52 @@
 import Foundation
 
 enum OptionType: String {
-    case deleteModuleCache = "1"
-    case quit = "q"
-    case unknown
+    case openXcode
+    case deleteModuleCache
+    case quit
+}
+
+struct Option {
+    let handle: String
+    let type: OptionType
+    let description: String
     
-    init(value: String) {
-        switch value {
-        case "1": self = .deleteModuleCache
-        case "q": self = .quit
-        default: self = .unknown
+    init?(handle: String) {
+        let options = Option.available
+        
+        if let i = options.index(where: { $0.handle == handle}) {
+            let option = options[i]
+            self.handle = option.handle
+            self.type = option.type
+            self.description = option.description
+        } else {
+            return nil
         }
     }
+    
+    init(handle: String, type: OptionType, description: String) {
+        self.handle = handle
+        self.type = type
+        self.description = description
+    }
+    
+    static let available = [
+        Option(
+            handle: "1",
+            type: .openXcode,
+            description: "Open Xcode"
+        ),
+        Option(
+            handle: "2",
+            type: .deleteModuleCache,
+            description: "Delete Xcodes Module Cache"
+        ),
+        Option(
+            handle: "q",
+            type: .quit,
+            description: "Quit"
+        )
+    ]
 }
 
 struct Color {
@@ -22,12 +57,10 @@ struct Color {
 class ConsoleIO {
     func printUsage() {
         write("Please choose one of the options listed below:")
-        write("1. Delete Xcodes Module Cache")
-        write("q. Quit")
-    }
-    
-    func get(option: String) -> OptionType {
-        return OptionType(value: option)
+        
+        for option in Option.available {
+            write("\(option.handle). \(option.description)")
+        }
     }
     
     func write(_ message: String, to: OutputType = .standard) {

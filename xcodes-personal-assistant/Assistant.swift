@@ -16,16 +16,26 @@ class Assistant {
             consoleIO.printUsage()
             
             let input = consoleIO.getInput()
-            let option = consoleIO.get(option: input)
             
-            switch option {
-            case .deleteModuleCache:
-                consoleIO.write("Deleting module cache!")
-            case .quit:
-                shouldQuit = true
-            default:
+            if let option = Option(handle: input) {
+                
+                switch option.type {
+                case .openXcode:
+                    openXcode()
+                case .deleteModuleCache:
+                    consoleIO.write("Deleting module cache!")
+                case .quit:
+                    shouldQuit = true
+                }
+
+            } else {
                 consoleIO.write("Unknown option \(input)", to: .error)
             }
+            
         }
+    }
+    
+    private func openXcode() {
+        consoleIO.write("Open xcode")
     }
 }
