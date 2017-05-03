@@ -1,17 +1,13 @@
 import Foundation
 
 enum OptionType: String {
-    case palindrome = "p"
-    case anagram = "a"
-    case help = "h"
+    case deleteModuleCache = "1"
     case quit = "q"
     case unknown
     
     init(value: String) {
         switch value {
-        case "a": self = .anagram
-        case "p": self = .palindrome
-        case "h": self = .help
+        case "1": self = .deleteModuleCache
         case "q": self = .quit
         default: self = .unknown
         }
@@ -24,20 +20,14 @@ struct Color {
 }
 
 class ConsoleIO {
-    class func printUsage() {
-        let executableName = (CommandLine.arguments[0] as NSString).lastPathComponent
-        
-        print("usage:")
-        print("\(executableName) -a string1 string2")
-        print("or")
-        print("\(executableName) -p string")
-        print("or")
-        print("\(executableName) -h to show usage information")
-        print("Type \(executableName) without an option to enter interactive mode.")
+    func printUsage() {
+        write("Please choose one of the options listed below:")
+        write("1. Delete Xcodes Module Cache")
+        write("q. Quit")
     }
     
-    func getOption(option: String) -> (option:OptionType, value: String) {
-        return (OptionType(value: option), option)
+    func get(option: String) -> OptionType {
+        return OptionType(value: option)
     }
     
     func write(_ message: String, to: OutputType = .standard) {
@@ -53,17 +43,9 @@ class ConsoleIO {
     }
     
     func getInput() -> String {
-        
-        // 1
         let keyboard = FileHandle.standardInput
-        
-        // 2
         let inputData = keyboard.availableData
-        
-        // 3
         let strData = String(data: inputData, encoding: String.Encoding.utf8)!
-        
-        // 4
         return strData.trimmingCharacters(in: CharacterSet.newlines)
     }
 }
